@@ -20,8 +20,8 @@
                         <label class="form-label">Status</label>
                         <select name="status" class="form-control">
                             <option value="" selected hidden>pilih Status</option>
-                            <option value="masuk">Masuk</option>
-                            <option value="keluar">Keluar</option>
+                            <option value="pengembalian">dikembalikan</option>
+                            <option value="peminjaman">dipinjam</option>
                         </select>
                     </div>
                     <div class="mb-3">

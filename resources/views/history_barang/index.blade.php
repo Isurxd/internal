@@ -1,25 +1,23 @@
 @extends('layouts.backend')
+
+@section('styles')
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css"> --}}
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css">
+@endsection
+
 @section('content')
     <h6 class="mb-0 text-uppercase">ini adalah isi index Barang History Barang</h6>
     <hr>
     <div class="card">
-        <div class="col-lg-4 pb-4 me-auto ">
-            <form action="{{ route('history_barang.download_pdf') }}" method="GET">
-                <select name="status" class="form-control">
-                    <option value="" selected hidden>pilih Status</option>
-                    <option value="masuk">Masuk</option>
-                    <option value="keluar">Keluar</option>
-                </select>
-                <button class="btn btn-success" type="submit">Print</button>
-            </form>
-        </div>
         <div class="col-lg-4 pb-4 ms-auto">
             <a href="{{ route('history_barang.create') }}" class="btn btn-success px-5 raised d-flex gap-5">
                 <i class="bi bi-plus-circle"></i>
                 Tambah History Barang
             </a>
         </div>
-        <table class="table mb-0 table-dark table-striped">
+        <table class="table mb-0 table-dark table-striped" id="example">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -84,3 +82,26 @@
         </script>
     @endif
 @endsection
+
+@push('scripts')
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+    <script>
+        new DataTable('#example', {
+            layout: {
+                topStart: {
+                    buttons: ['pdf', 'excel']
+                }
+            }
+        });
+    </script>
+@endpush

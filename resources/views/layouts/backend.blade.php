@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en" data-bs-theme="blue-theme">
+{{-- <html lang="en" data-bs-theme="blue-theme"> --}}
+<html lang="en" data-bs-theme="semi-dark">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Maxton | Bootstrap 5 Admin Dashboard Template</title>
+    <title>Project-Pkl</title>
     <!--favicon-->
     <link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }}" type="image/png">
     <!-- loader-->
@@ -31,7 +32,9 @@
     <link href="{{ asset('backend/sass/bordered-theme.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/sass/responsive.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @yield('css')
+    @yield('styles')
 </head>
 
 <body>
@@ -208,8 +211,10 @@
     <script>
         new PerfectScrollbar(".user-list")
     </script>
+
+
     @yield('js')
-    @stack('script')
+    @stack('scripts')
 </body>
 
 </html>

@@ -55,12 +55,13 @@ class KeluarController extends Controller
 
         $barang = Barang::find($request->barang_id);
         if ($barang->stok < $request->jumlah) {
-            return redirect()->route('keluar.index')->with('error', 'Stok Tidak Cukup');
+            return redirect()->route('peminjaman.index')->with('error', 'Stok Tidak Cukup');
         } else {
             $barang->stok = $barang->stok - $request->jumlah;
             $barang->save();
-            return redirect()->route('keluar.index')->with('success', 'Data Berhasil Ditambah');
         }
+        return redirect()->route('peminjaman.index')->with('success', 'Data Berhasil Ditambah');
+
     }
 
     /**

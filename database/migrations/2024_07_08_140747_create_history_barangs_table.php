@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('history_barangs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('barang_id');
-            $table->enum('status', ['masuk', 'keluar']);
+            $table->enum('status', ['peminjaman', 'pengembalian']);
             $table->foreign('barang_id')->references('id')->on('barangs')->onDelete('cascade');
             $table->integer('jumlah');
             $table->string('keterangan');

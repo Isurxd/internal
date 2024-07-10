@@ -20,9 +20,9 @@
                     <div class="mb-3">
                         <label class="form-label">Status</label>
                         <select name="status" class="form-control">
-                            <option value="masuk" {{ $history_barang->status == 'masuk' ? 'selected' : '' }}>Masuk
+                            <option value="peminjaman" {{ $history_barang->status == 'peminjaman' ? 'selected' : '' }}>dipinjam
                             </option>
-                            <option value="keluar" {{ $history_barang->status == 'keluar' ? 'selected' : '' }}>Keluar
+                            <option value="pengembalian" {{ $history_barang->status == 'pengembalian' ? 'selected' : '' }}>dikembalikan
                             </option>
                         </select>
                     </div>

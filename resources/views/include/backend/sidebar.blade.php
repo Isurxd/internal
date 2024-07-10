@@ -1,9 +1,6 @@
 <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
-        <div class="logo-icon">
-            <img src="{{ asset('backend/assets/images/logo-icon.png') }}" class="logo-img" alt="">
-        </div>
-        <div class="logo-name flex-grow-1">
+        <div class="logo-name flex-grow-1 text-center">
             <h5 class="mb-0">Inventory</h5>
         </div>
         <div class="sidebar-close">
@@ -42,7 +39,7 @@
                             </div>
                         </a>
                     </li>
-                    {{-- <li>
+                    <li>
                     <a href="{{route('masuk.index')}}">
                         <div class="parent-icon"><i class="bi bi-plus-circle"></i>
 							</div>
@@ -57,20 +54,12 @@
 							<div class="menu-title">Barang keluar
 						</div>
                     </a>
-                </li> --}}
+                </li>
                     <li>
                         <a href="{{ route('history_barang.index') }}">
-                            <div class="parent-icon"><i class="bi bi-dash-circle"></i>
+                            <div class="parent-icon"><i class="bi bi-arrow-repeat"></i>
                             </div>
                             <div class="menu-title">History Barang
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('peminjaman.index') }}">
-                            <div class="parent-icon"><i class="bi bi-arrow-left-right"></i>
-                            </div>
-                            <div class="menu-title">Peminjaman
                             </div>
                         </a>
                     </li>

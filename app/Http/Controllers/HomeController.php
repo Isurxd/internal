@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Barang;
+use App\Models\Keluar;
+use App\Models\Masuk;
+use App\Models\Peminjaman;
+use App\Models\Pengembalian;
 
 class HomeController extends Controller
-{
+{   
     /**
      * Create a new controller instance.
      *
@@ -23,6 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/admin');
+        $barang = Barang::count('id');
+        $masuk = Masuk::count('id');
+        $keluar = Keluar::count('id');
+        $peminjaman = Peminjaman::count('id');
+        $pengembalian = Pengembalian::count('id');
+
+        return view('home', compact('barang','masuk', 'keluar', 'peminjaman', 'pengeluaran'));
     }
+
+    // {
+    //     return view('/admin');
+    // }
 }

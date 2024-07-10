@@ -113,7 +113,7 @@ class HistoryBarangController extends Controller
 
         $history_barang = HistoryBarang::findOrFail($id);
         $barang = Barang::findOrFail($history_barang->barang_id);
-        if ($history_barang->status == 'masuk') {
+        if ($history_barang->status == 'pengembalian') {
             $barang->stok -= $history_barang->jumlah;
         } else {
             $barang->stok += $history_barang->jumlah;
@@ -127,7 +127,7 @@ class HistoryBarangController extends Controller
         $history_barang->save();
 
         $barang = Barang::find($request->barang_id);
-        if ($request->status == 'masuk') {
+        if ($request->status == 'pengembalian') {
             $barang->stok = $barang->stok + $request->jumlah;
         } else {
             $barang->stok = $barang->stok - $request->jumlah;
@@ -150,7 +150,7 @@ class HistoryBarangController extends Controller
 
         $barang = Barang::findOrFail($history_barang->barang_id);
 
-        if ($history_barang->status == 'masuk') {
+        if ($history_barang->status == 'pengembalian') {
             $barang->stok -= $history_barang->jumlah;
         } else {
             $barang->stok += $history_barang->jumlah;
@@ -159,20 +159,20 @@ class HistoryBarangController extends Controller
         $barang->save();
 
         $history_barang->delete();
-        return redirect()->route('masuk.index')->with('success', 'Data berhasil Dihapus');
+        return redirect()->route('pengembalian.index')->with('success', 'Data berhasil Dihapus');
     }
 
-    public function downloadPdf()
-    {
-        // $barang = Barang::all();
-        // $pdf = PDF::loadView('export_pdf');
-        // return $pdf->stream('barang.pdf');
+    // public function downloadPdf()
+    // {
+    //     // $barang = Barang::all();
+    //     // $pdf = PDF::loadView('export_pdf');
+    //     // return $pdf->stream('barang.pdf');
 
-        $data = ['title' => 'Welcome to Laravel PDF Generation'];
+    //     $data = ['title' => 'Welcome to Laravel PDF Generation'];
 
-        $pdf = PDF::loadView('myPDF', $data);
+    //     $pdf = PDF::loadView('myPDF', $data);
 
-        return $pdf->download('myPDF.pdf');
+    //     return $pdf->download('myPDF.pdf');
 
-    }
+    // }
 }
