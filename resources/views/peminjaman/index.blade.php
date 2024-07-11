@@ -9,7 +9,7 @@
     <h6 class="mb-0 text-uppercase">ini adalah isi index Barang peminjaman</h6>
     <hr>
     <div class="card">
-        <div class="col-lg-4 pb-4 ms-auto">
+        <div class="col-lg-4 pb-4 ms-auto mt-3">
             <a href="{{ route('peminjaman.create') }}" class="btn btn-success px-5 raised d-flex gap-5">
                 <i class="bi bi-plus-circle"></i>
                 Tambah Barang peminjaman
@@ -61,6 +61,17 @@
             Swal.fire({
                 html: '<strong>{{ session('success') }}</strong>',
                 icon: 'success',
+                showConfirmButton: false,
+                timer: 1200
+            })
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                html: '<strong>{{ session('error') }}</strong>',
+                icon: 'error',
                 showConfirmButton: false,
                 timer: 1200
             })

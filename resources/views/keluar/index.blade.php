@@ -14,7 +14,7 @@
                 {{ session('success') }}
             </div>
         @endif
-        <div class="col-lg-4 pb-4 ms-auto">
+        <div class="col-lg-4 pb-4 ms-auto mt-3">
             <a href="{{ route('keluar.create') }}" class="btn btn-success px-5 raised d-flex gap-5">
                 <i class="bi bi-plus-circle"></i>
                 Tambah Barang keluar
@@ -60,7 +60,31 @@
         </table>
     </div>
     </div>
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                html: '<strong>{{ session('success') }}</strong>',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1200
+            })
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                html: '<strong>{{ session('error') }}</strong>',
+                icon: 'error',
+                showConfirmButton: false,
+                timer: 1200
+            })
+        </script>
+    @endif
 @endsection
+
+
 
 @push('scripts')
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>

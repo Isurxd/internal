@@ -3,7 +3,7 @@
     <div class="col-12 col-xl-12">
         <div class="card">
             <div class="card-body p-4">
-                <h1 class="page-header">Tambah data Pengembalian</h1>
+                <h1 class="page-header">Tambah data pengeluaran</h1>
                 <form class="row g-3" method="POST" action="{{ route('keluar.store') }}">
                     @csrf
                     <select name="barang_id" class="form-control">

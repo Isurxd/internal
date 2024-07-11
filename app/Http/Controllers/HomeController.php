@@ -2,14 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barang;
-use App\Models\Keluar;
-use App\Models\Masuk;
-use App\Models\Peminjaman;
-use App\Models\Pengembalian;
-
 class HomeController extends Controller
-{   
+{
     /**
      * Create a new controller instance.
      *
@@ -27,13 +21,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $barang = Barang::count('id');
-        $masuk = Masuk::count('id');
-        $keluar = Keluar::count('id');
-        $peminjaman = Peminjaman::count('id');
-        $pengembalian = Pengembalian::count('id');
+        // $barang = Barang::count();
+        // $masuk = Masuk::count();
+        // $keluar = Keluar::count();
+        // $peminjaman = Peminjaman::count();
+        // $pengembalian = Pengembalian::count();
 
-        return view('home', compact('barang','masuk', 'keluar', 'peminjaman', 'pengeluaran'));
+        // return view('home', compact('barang', 'masuk', 'keluar', 'peminjaman', 'pengeluaran'));
     }
 
     // {

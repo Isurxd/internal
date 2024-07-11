@@ -122,7 +122,7 @@
                     <form class="row g-3" method="POST" action="{{ route('login') }}">
                         @csrf
 									
-											<div class="col-12">
+										<div class="col-12">
 												<label for="inputEmailAddress" class="form-label">Email</label>
 												<input type="email" class="form-control" id="inputEmailAddress" placeholder="" name="email">
 											</div>
@@ -146,7 +146,6 @@
 											</div>
 										</form>
 									</div>
-
               </div>
             </div>
            </div>

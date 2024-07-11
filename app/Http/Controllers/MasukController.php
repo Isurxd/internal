@@ -126,9 +126,9 @@ class MasukController extends Controller
     public function destroy($id)
     {
         $masuk = Masuk::findOrFail($id);
-        $barang = Barang::findOrFail($masuk->barang_id);
-        $barang->stok -= $masuk->jumlah;
-        $barang->save();
+        // $barang = Barang::findOrFail($masuk->barang_id);
+        // $barang->stok -= $masuk->jumlah;
+        // $barang->save();
 
         $masuk->delete();
         return redirect()->route('masuk.index')->with('success', 'Data berhasil Dihapus');

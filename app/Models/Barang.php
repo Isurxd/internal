@@ -25,10 +25,10 @@ class Barang extends Model
     {
         return $this->hasMany(keluar::class, 'id_keluar');
     }
-    public function peminjaman()
-    {
-        return $this->hasMany(Peminjaman::class, 'id_peminjaman');
-    }
+    // public function peminjaman()
+    // {
+    //     return $this->hasMany(Peminjaman::class, 'id_peminjaman');
+    // }
     //  public function kembali()
     // {
     //     return $this->hasMany(kembali::class, 'id_kembali');

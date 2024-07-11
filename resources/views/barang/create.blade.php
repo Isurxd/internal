@@ -84,7 +84,7 @@
                                                 <label class="form-label">Merek</label>
                                                 <input type="text" class="form-control" name="merek">
                                                 <label class="form-label">Stok</label>
-                                                <input type="number" class="form-control" name="stok">
+                                                <input type="number" class="form-control" name="stok" value="0" placeholder="0">
                                                 <br>
                                                 <div class="col-md-12">
                                                     <div class="d-md-flex d-grid align-items-center gap-3">

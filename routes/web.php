@@ -8,6 +8,11 @@ use App\Http\Controllers\MasukController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\IsAdmin;
+use App\Models\Barang;
+use App\Models\HistoryBarang;
+use App\Models\Keluar;
+use App\Models\Masuk;
+// use App\Models\Pengembalian;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,8 +28,13 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return view('home');
-})->middleware('auth');
+    $barang = Barang::count();
+    $masuk = Masuk::count();
+    $keluar = Keluar::count();
+    $peminjaman = HistoryBarang::where('status', 'peminjaman')->count();
+    $pengembalian = HistoryBarang::where('status', 'pengembalian')->count();
+    return view('home', compact('barang', 'masuk', 'keluar', 'peminjaman', 'pengembalian'));
+})->middleware('auth', IsAdmin::class);
 
 // routes/web.php
 // Route::POST('/logout','Auth\LoginController@logout')->name('logout');

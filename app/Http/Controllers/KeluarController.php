@@ -39,6 +39,7 @@ class KeluarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -46,23 +47,50 @@ class KeluarController extends Controller
             'jumlah' => 'required',
             'tanggal_keluar' => 'required',
         ]);
-        $keluar = new Keluar();
-        $keluar->barang_id = $request->barang_id;
-        $keluar->jumlah = $request->jumlah;
-        $keluar->tanggal_keluar = $request->tanggal_keluar;
-        $keluar->keterangan = $request->keterangan;
-        $keluar->save();
+
+//  
 
         $barang = Barang::find($request->barang_id);
-        if ($barang->stok < $request->jumlah) {
-            return redirect()->route('peminjaman.index')->with('error', 'Stok Tidak Cukup');
-        } else {
-            $barang->stok = $barang->stok - $request->jumlah;
-            $barang->save();
+            if ($barang->stok < $request->jumlah) {
+                return redirect()->route('keluar.index')->with('error', 'Stok Tidak Cukup');
+            } else {
+
+                $keluar = new Keluar();
+                $keluar->barang_id = $request->barang_id;
+                $keluar->jumlah = $request->jumlah;
+                $keluar->tanggal_keluar = $request->tanggal_keluar;
+                $keluar->keterangan = $request->keterangan;
+                $keluar->save();
+
+                $barang->stok = $barang->stok - $request->jumlah;
+                $barang->save();
         }
-        return redirect()->route('peminjaman.index')->with('success', 'Data Berhasil Ditambah');
+        return redirect()->route('keluar.index')->with('success', 'Data Berhasil Ditambah');
 
     }
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'barang_id' => 'required',
+    //         'jumlah' => 'required',
+    //         'tanggal_keluar' => 'required',
+    //     ]);
+    //     $keluar = new Keluar();
+    //     $keluar->barang_id = $request->barang_id;
+    //     $keluar->jumlah = $request->jumlah;
+    //     $keluar->tanggal_keluar = $request->tanggal_keluar;
+    //     $keluar->keterangan = $request->keterangan;
+
+    //     $barang = Barang::find($request->barang_id);
+    //     if ($barang->stok < $request->jumlah) {
+    //         return redirect()->route('keluar.index')->with('error', 'Stok Tidak Cukup');
+    //     } else {
+    //         $barang->stok = $barang->stok - $request->jumlah;
+    //         $barang->save();
+    //     }
+    //     return redirect()->route('keluar.index')->with('success', 'Data Berhasil Ditambah');
+
+    // }
 
     /**
      * Display the specified resource.
@@ -103,6 +131,10 @@ class KeluarController extends Controller
             'jumlah' => 'required',
             'tanggal_keluar' => 'required',
         ]);
+        $barang = Barang::find($request->barang_id);
+        if ($barang->stok < $request->jumlah) {
+                return redirect()->route('keluar.index')->with('error', 'Stok Tidak Cukup');
+            } else {
         $keluar = Keluar::findOrFail($id);
         $barang = Barang::findOrFail($keluar->barang_id);
         $barang->stok -= $keluar->jumlah;
@@ -119,7 +151,7 @@ class KeluarController extends Controller
         $newbarang->save();
 
         return redirect()->route('keluar.index')->with('success', 'Data Berhasil Diubah');
-
+            }
     }
 
     /**
@@ -131,9 +163,9 @@ class KeluarController extends Controller
     public function destroy($id)
     {
         $keluar = Keluar::findOrFail($id);
-        $barang = Barang::findOrFail($keluar->barang_id);
-        $barang->stok += $keluar->jumlah;
-        $barang->save();
+        // $barang = Barang::findOrFail($keluar->barang_id);
+        // $barang->stok += $keluar->jumlah;
+        // $barang->save();
 
         $keluar->delete();
         return redirect()->route('keluar.index')->with('success', 'Data berhasil Dihapus');

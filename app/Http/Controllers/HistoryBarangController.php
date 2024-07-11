@@ -47,7 +47,7 @@ class HistoryBarangController extends Controller
         ]);
 
         $barang = Barang::find($request->barang_id);
-        if ($request->status == 'masuk') {
+        if ($request->status == 'pengembalian') {
             $barang->stok = $barang->stok + $request->jumlah;
             $barang->save();
         } else {
@@ -150,16 +150,16 @@ class HistoryBarangController extends Controller
 
         $barang = Barang::findOrFail($history_barang->barang_id);
 
-        if ($history_barang->status == 'pengembalian') {
-            $barang->stok -= $history_barang->jumlah;
-        } else {
-            $barang->stok += $history_barang->jumlah;
-        }
+        // if ($history_barang->status == 'pengembalian') {
+        //     $barang->stok -= $history_barang->jumlah;
+        // } else {
+        //     $barang->stok += $history_barang->jumlah;
+        // }
 
         $barang->save();
 
         $history_barang->delete();
-        return redirect()->route('pengembalian.index')->with('success', 'Data berhasil Dihapus');
+        return redirect()->route('history_barang.index')->with('success', 'Data berhasil Dihapus');
     }
 
     // public function downloadPdf()
