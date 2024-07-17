@@ -20,47 +20,48 @@
                 Tambah Barang keluar
             </a>
         </div>
-        <table class="table mb-0 table-dark table-striped" id="example">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Merek</th>
-                    <th scope="col">Stok</th>
-                    <th scope="col">Tanggal_keluar</th>
-                    <th scope="col">Keterangan</th>
-                    <th scope="col">action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($keluar as $item)
+        <div class="table-responsive text-nowrap text-center">
+            <table class="table mb-0 table-dark table-bordered table-striped" id="example">
+                <thead>
                     <tr>
-                        <th scope="row">{{ $loop->index + 1 }}</th>
-                        <td>{{ $item->barang->nama }}</td>
-                        <td>{{ $item->barang->merek }}</td>
-                        <td>{{ $item->jumlah }}</td>
-                        <td>{{ $item->created_at }}</td>
-                        <td>{{ $item->keterangan }}</td>
-                        <form action="{{ route('keluar.destroy', $item->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <td>
-                                <a href="{{ route('keluar.edit', $item->id) }}"
-                                    class="btn btn-grd btn-grd-primary px-5">Edit</a>
-                                <button type="submit" class="btn btn-grd btn-grd-danger px-5"
-                                    onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
-                                    Delete
-                                </button>
-                                </a>
-                            </td>
-                        </form>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Merek</th>
+                        <th scope="col">Stok</th>
+                        <th scope="col">Tanggal_keluar</th>
+                        <th scope="col">Keterangan</th>
+                        <th scope="col">action</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($keluar as $item)
+                        <tr>
+                            <th scope="row">{{ $loop->index + 1 }}</th>
+                            <td>{{ $item->barang->nama }}</td>
+                            <td>{{ $item->barang->merek }}</td>
+                            <td>{{ $item->jumlah }}</td>
+                            <td>{{ $item->created_at }}</td>
+                            <td>{{ $item->keterangan }}</td>
+                            <form action="{{ route('keluar.destroy', $item->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <td>
+                                    <a href="{{ route('keluar.edit', $item->id) }}"
+                                        class="btn btn-grd btn-grd-primary px-5">Edit</a>
+                                    <button type="submit" class="btn btn-grd btn-grd-danger px-5"
+                                        onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
+                                        Delete
+                                    </button>
+                                    </a>
+                                </td>
+                            </form>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
-    </div>
-
+</div>
     @if (session('success'))
         <script>
             Swal.fire({

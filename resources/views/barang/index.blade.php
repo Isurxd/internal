@@ -24,10 +24,11 @@
                     Download PDF
                 </a>
             </div> --}}
-            <table class="table mb-0 table-dark table-striped" id="example">
+            <div class="table-responsive text-nowrap text-center">
+            <table class="table mb-0 table-dark table-bordered table-striped" id="example">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Merek</th>
                         <th scope="col">Stok</th>
@@ -58,6 +59,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 @endsection

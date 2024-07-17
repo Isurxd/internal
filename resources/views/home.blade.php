@@ -18,10 +18,84 @@
         </div>
     </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+            <div class="card rounded-2 w-100">
+                <div class="card-body">
+                    <div class="">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <h5 class="mb-0">Barang Masuk</span></h5>
+                        </div>
+                        <p class="mb-4">Jumlah</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="">
+                                <h3 class="mb-0 text-indigo">{{ $masuk1 }}</h3>
+                                <p class="mb-3">58% of sales target</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+            <div class="card rounded-2 w-100">
+                <div class="card-body">
+                    <div class="">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <h5 class="mb-0">Barang Keluar</span></h5>
+                        </div>
+                        <p class="mb-4">Jumlah</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="">
+                                <h3 class="mb-0 text-indigo">{{ $keluar1 }}</h3>
+                                <p class="mb-3">58% of sales target</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+            <div class="card rounded-2 w-100">
+                <div class="card-body">
+                    <div class="">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <h5 class="mb-0">Peminjaman</span></h5>
+                        </div>
+                        <p class="mb-4">Jumlah</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="">
+                                <h3 class="mb-0 text-indigo">{{ $history_barang }}</h3>
+                                <p class="mb-3">58% of sales target</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+            <div class="card rounded-2 w-100">
+                <div class="card-body">
+                    <div class="">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <h5 class="mb-0">Pengembalian</span></h5>
+                        </div>
+                        <p class="mb-4">Jumlah</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="">
+                                <h3 class="mb-0 text-indigo">{{ $history_barang }}</h3>
+                                <p class="mb-3">58% of sales target</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-12 col-lg-4 col-xxl-3 d-flex">
-            <div class="card rounded-4 w-100">
+            <div class="card rounded-2 w-100">
                 <div class="card-body">
                     <div class="">
                         <div class="d-flex align-items-center gap-2 mb-2">
@@ -39,75 +113,65 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-lg-4 col-xxl-3 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
+        <div class="col-sm-9 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-1">
                         <div class="">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <h5 class="mb-0">Barang Masuk</span></h5>
-                            </div>
-                            <p class="mb-4">Jumlah</p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="">
-                                    <h3 class="mb-0 text-indigo">{{$masuk}}</h3>
-                                    <p class="mb-3">58% of sales target</p>
-                                </div>
-                            </div>
+                            <h5 class="mb-0">68.4K</h5>
+                            <p class="mb-0">Barang Masuk</p>
                         </div>
+                        <div class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
+                                data-bs-toggle="dropdown">
+                                <span class="material-icons-outlined fs-5">more_vert</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('masuk.index') }}">Info</a></li>
+                                {{-- <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Something else here</a></li> --}}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="chart-container2">
+                        <div class="chart">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        {{-- <p class="mb-0 font-12">35K users increased from last month</p> --}}
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-4 col-xxl-3 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
+        </div>
+        {{-- end row --}}
+
+
+        <div class="col-sm-12 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-1">
                         <div class="">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <h5 class="mb-0">Barang Keluar</span></h5>
-                            </div>
-                            <p class="mb-4">Jumlah</p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="">
-                                    <h3 class="mb-0 text-indigo">{{$keluar}}</h3>
-                                    <p class="mb-3">58% of sales target</p>
-                                </div>
-                            </div>
+                            <h5 class="mb-0">68.4K</h5>
+                            <p class="mb-0"></p>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 col-xxl-3 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <h5 class="mb-0">Peminjaman</span></h5>
-                            </div>
-                            <p class="mb-4">Jumlah</p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="">
-                                    <h3 class="mb-0 text-indigo">{{ $peminjaman }}</h3>
-                                    <p class="mb-3">58% of sales target</p>
-                                </div>
-                            </div>
+                        {{-- <div class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
+                                data-bs-toggle="dropdown">
+                                <span class="material-icons-outlined fs-5">more_vert</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 col-xxl-3 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <h5 class="mb-0">Pengembalian</span></h5>
-                            </div>
-                            <p class="mb-4">Jumlah</p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="">
-                                    <h3 class="mb-0 text-indigo">{{$pengembalian}}</h3>
-                                    <p class="mb-3">58% of sales target</p>
-                                </div>
-                            </div>
+                    </div> --}}
+                        <div class="chart-container2">
+                            <div id="barang_masuk"></div>
+                        </div>
+                        <div class="text-center">
+                            <p class="mb-0 font-12">35K users increased from last month</p>
                         </div>
                     </div>
                 </div>

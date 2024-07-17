@@ -17,7 +17,8 @@
                 Tambah History Barang
             </a>
         </div>
-        <table class="table mb-0 table-dark table-striped" id="example">
+        <div class="table-responsive text-nowrap text-center">
+            <table class="table mb-0 table-dark table-bordered table-striped" id="example">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -59,7 +60,7 @@
         </table>
     </div>
     </div>
-
+</div>
     @if (session('success'))
         <script>
             Swal.fire({

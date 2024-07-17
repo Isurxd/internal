@@ -40,21 +40,21 @@
                         </a>
                     </li>
                     <li>
-                    <a href="{{route('masuk.index')}}">
-                        <div class="parent-icon"><i class="bi bi-plus-circle"></i>
-							</div>
-							<div class="menu-title">Barang Masuk
-						</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('keluar.index')}}">
-                        <div class="parent-icon"><i class="bi bi-dash-circle"></i>
-							</div>
-							<div class="menu-title">Barang keluar
-						</div>
-                    </a>
-                </li>
+                        <a href="{{ route('masuk.index') }}">
+                            <div class="parent-icon"><i class="bi bi-plus-circle"></i>
+                            </div>
+                            <div class="menu-title">Barang Masuk
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('keluar.index') }}">
+                            <div class="parent-icon"><i class="bi bi-dash-circle"></i>
+                            </div>
+                            <div class="menu-title">Barang keluar
+                            </div>
+                        </a>
+                    </li>
                     <li>
                         <a href="{{ route('history_barang.index') }}">
                             <div class="parent-icon"><i class="bi bi-arrow-repeat"></i>
@@ -65,6 +65,16 @@
                     </li>
                 </ul>
             </li>
-            <!--end navigation-->
+            <li>
+                <a href="{{ route('laporan.index') }}">
+                    <div class="parent-icon"><i class="bi bi-file-pdf-fill"></i>
+                    </div>
+                    <div class="menu-title">Laporan
+                    </div>
+                </a>
+            </li>
+        </ul>
+        </li>
+        <!--end navigation-->
     </div>
 </aside>

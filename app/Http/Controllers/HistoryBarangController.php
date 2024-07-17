@@ -113,7 +113,7 @@ class HistoryBarangController extends Controller
 
         $history_barang = HistoryBarang::findOrFail($id);
         $barang = Barang::findOrFail($history_barang->barang_id);
-        if ($history_barang->status == 'pengembalian') {
+        if ($history_barang->status == 'peminjaman') {
             $barang->stok -= $history_barang->jumlah;
         } else {
             $barang->stok += $history_barang->jumlah;
