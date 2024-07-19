@@ -116,7 +116,7 @@
         <div class="col-sm-9 d-flex align-items-stretch">
             <div class="card w-100 rounded-4">
                 <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between mb-1">
+                    <div class="chart">
                         <div class="">
                             <h5 class="mb-0">68.4K</h5>
                             <p class="mb-0">Barang Masuk</p>
@@ -133,11 +133,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="chart-container2">
-                        <div class="chart">
-                            <canvas id="myChart"></canvas>
-                        </div>
-                    </div>
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="d-flex align-items-start justify-content-between mb-1">
                     <div class="text-center">
                         {{-- <p class="mb-0 font-12">35K users increased from last month</p> --}}
                     </div>
@@ -146,35 +144,62 @@
         </div>
         {{-- end row --}}
 
+        {{-- chart --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart');
 
-        <div class="col-sm-12 d-flex align-items-stretch">
-            <div class="card w-100 rounded-4">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between mb-1">
-                        <div class="">
-                            <h5 class="mb-0">68.4K</h5>
-                            <p class="mb-0"></p>
-                        </div>
-                        {{-- <div class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
-                                data-bs-toggle="dropdown">
-                                <span class="material-icons-outlined fs-5">more_vert</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
-                            </ul>
-                        </div>
-                    </div> --}}
-                        <div class="chart-container2">
-                            <div id="barang_masuk"></div>
-                        </div>
-                        <div class="text-center">
-                            <p class="mb-0 font-12">35K users increased from last month</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
+                    'Oktober', 'November', 'Desember'
+                ],
+                datasets: [{
+                        label: 'Barang Masuk',
+                        data: [
+                            {{ $total_barang_masuk[1] }},
+                            {{ $total_barang_masuk[2] }},
+                            {{ $total_barang_masuk[3] }},
+                            {{ $total_barang_masuk[4] }},
+                            {{ $total_barang_masuk[5] }},
+                            {{ $total_barang_masuk[6] }},
+                            {{ $total_barang_masuk[7] }},
+                            {{ $total_barang_masuk[8] }},
+                            {{ $total_barang_masuk[9] }},
+                            {{ $total_barang_masuk[10] }},
+                            {{ $total_barang_masuk[11] }},
+                            {{ $total_barang_masuk[12] }}
+                        ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Barang Keluar',
+                        data: [
+                            {{ $total_barang_keluar[1] }},
+                            {{ $total_barang_keluar[2] }},
+                            {{ $total_barang_keluar[3] }},
+                            {{ $total_barang_keluar[4] }},
+                            {{ $total_barang_keluar[5] }},
+                            {{ $total_barang_keluar[6] }},
+                            {{ $total_barang_keluar[7] }},
+                            {{ $total_barang_keluar[8] }},
+                            {{ $total_barang_keluar[9] }},
+                            {{ $total_barang_keluar[10] }},
+                            {{ $total_barang_keluar[11] }},
+                            {{ $total_barang_keluar[12] }}
+                        ],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
     @endsection

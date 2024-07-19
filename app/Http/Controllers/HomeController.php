@@ -55,6 +55,14 @@ class HomeController extends Controller
         $hasilPemasukan = $masukPemasukan->sum('jumlah');
         // dd($hasilPemasukan);
 
+        $total_barang_masuk = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $total_barang_masuk[$i] = Masuk::whereMonth('created_at', $i)->sum('jumlah');
+        }
+        $total_barang_keluar = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $total_barang_keluar[$i] = Keluar::whereMonth('created_at', $i)->sum('jumlah');
+        }
         return view('home', [
             'barang' => $barang,
             'masuk' => $masuk,
@@ -68,6 +76,8 @@ class HomeController extends Controller
             'hasilPemasukan' => $hasilPemasukan,
             'history_barang' => $peminjaman,
             'history_barang' => $pengembalian,
+            'total_barang_masuk' => $total_barang_masuk,
+            'total_barang_keluar' => $total_barang_keluar,
         ]);
     }
 }

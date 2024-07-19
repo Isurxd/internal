@@ -212,49 +212,6 @@
         new PerfectScrollbar(".user-list")
     </script>
 
-    {{-- chart --}}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-
-        var masuk = {
-            labels: [
-                @foreach ($masuk as $data)
-                    "{{ $data->created_at->format('m, Y') }}",
-                @endforeach
-            ],
-            datasets: [{
-                label: "masuk",
-                backgroundColor: "rgba(11, 99, 132, 0.2)",
-                borderColor: "rgba(11, 99, 132, 1)",
-                borderWidth: 1,
-                data: @json($hasilPemasukan),
-            }]
-        };
-
-        var chart = new Chart(ctx, {
-            type: 'line',
-            data: masuk,
-            options: {
-                title: {
-                    display: true,
-                    text: 'Monthly Income Chart'
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            callback: function(value, index, values) {
-                                return '$' + value
-                                    .toLocaleString(); // Format y-axis labels as currency
-                            }
-                        }
-                    }]
-                }
-            }
-        });
-    </script>
-
     @yield('js')
     @stack('scripts')
 </body>
