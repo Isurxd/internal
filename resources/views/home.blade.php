@@ -145,61 +145,61 @@
         {{-- end row --}}
 
         {{-- chart --}}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('myChart');
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const ctx = document.getElementById('myChart');
 
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['January', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
-                    'Oktober', 'November', 'Desember'
-                ],
-                datasets: [{
-                        label: 'Barang Masuk',
-                        data: [
-                            {{ $total_barang_masuk[1] }},
-                            {{ $total_barang_masuk[2] }},
-                            {{ $total_barang_masuk[3] }},
-                            {{ $total_barang_masuk[4] }},
-                            {{ $total_barang_masuk[5] }},
-                            {{ $total_barang_masuk[6] }},
-                            {{ $total_barang_masuk[7] }},
-                            {{ $total_barang_masuk[8] }},
-                            {{ $total_barang_masuk[9] }},
-                            {{ $total_barang_masuk[10] }},
-                            {{ $total_barang_masuk[11] }},
-                            {{ $total_barang_masuk[12] }}
-                        ],
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Barang Keluar',
-                        data: [
-                            {{ $total_barang_keluar[1] }},
-                            {{ $total_barang_keluar[2] }},
-                            {{ $total_barang_keluar[3] }},
-                            {{ $total_barang_keluar[4] }},
-                            {{ $total_barang_keluar[5] }},
-                            {{ $total_barang_keluar[6] }},
-                            {{ $total_barang_keluar[7] }},
-                            {{ $total_barang_keluar[8] }},
-                            {{ $total_barang_keluar[9] }},
-                            {{ $total_barang_keluar[10] }},
-                            {{ $total_barang_keluar[11] }},
-                            {{ $total_barang_keluar[12] }}
-                        ],
-                        borderWidth: 1
-                    }
-                ]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
+                        'Oktober', 'November', 'Desember'
+                    ],
+                    datasets: [{
+                            label: 'Barang Masuk',
+                            data: [
+                                {{ $total_barang_masuk[1] }},
+                                {{ $total_barang_masuk[2] }},
+                                {{ $total_barang_masuk[3] }},
+                                {{ $total_barang_masuk[4] }},
+                                {{ $total_barang_masuk[5] }},
+                                {{ $total_barang_masuk[6] }},
+                                {{ $total_barang_masuk[7] }},
+                                {{ $total_barang_masuk[8] }},
+                                {{ $total_barang_masuk[9] }},
+                                {{ $total_barang_masuk[10] }},
+                                {{ $total_barang_masuk[11] }},
+                                {{ $total_barang_masuk[12] }}
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Barang Keluar',
+                            data: [
+                                {{ $total_barang_keluar[1] }},
+                                {{ $total_barang_keluar[2] }},
+                                {{ $total_barang_keluar[3] }},
+                                {{ $total_barang_keluar[4] }},
+                                {{ $total_barang_keluar[5] }},
+                                {{ $total_barang_keluar[6] }},
+                                {{ $total_barang_keluar[7] }},
+                                {{ $total_barang_keluar[8] }},
+                                {{ $total_barang_keluar[9] }},
+                                {{ $total_barang_keluar[10] }},
+                                {{ $total_barang_keluar[11] }},
+                                {{ $total_barang_keluar[12] }}
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
-    </script>
+            });
+        </script>
     @endsection

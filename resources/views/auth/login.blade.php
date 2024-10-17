@@ -73,14 +73,14 @@
 @endsection
  --}}
 
- <!doctype html>
+<!doctype html>
 <html lang="en" data-bs-theme="blue-theme">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project-pkl</title>
-  <!--favicon-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Belajar</title>
+    <!--favicon-->
     <link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }}" type="image/png">
     <!-- loader-->
     <link href="{{ asset('backend/assets/css/pace.min.css') }} " rel="stylesheet">
@@ -103,78 +103,82 @@
     <link href="{{ asset('backend/sass/semi-dark.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/sass/bordered-theme.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/sass/responsive.css') }}" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
+<body>
 
     <!--authentication-->
     <div class="auth-basic-wrapper d-flex align-items-center justify-content-center">
-      <div class="container-fluid my-5 my-lg-0">
-        <div class="row">
-           <div class="col-12 col-md-8 col-lg-6 col-xl-5 col-xxl-4 mx-auto">
-            <div class="card rounded-4 mb-0 border-top border-4 border-primary border-gradient-1">
-              <div class="card-body p-5">
-                  <img src="assets/images/logo1.png" class="mb-4" width="145" alt="">
-                  <h4 class="fw-bold">Get Started Now</h4>
-                  <p class="mb-0">Enter your credentials to login your account</p>
+        <div class="container-fluid my-5 my-lg-0">
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 col-xxl-4 mx-auto">
+                    <div class="card rounded-4 mb-0 border-top border-4 border-primary border-gradient-1">
+                        <div class="card-body p-5">
+                            <img src="assets/images/logo1.png" class="mb-4" width="145" alt="">
+                            <h4 class="fw-bold">Get Started Now</h4>
+                            <p class="mb-0">Enter your credentials to login your account</p>
 
-                  <div class="form-body my-5">
-                    <form class="row g-3" method="POST" action="{{ route('login') }}">
-                        @csrf
-									
-										<div class="col-12">
-												<label for="inputEmailAddress" class="form-label">Email</label>
-												<input type="email" class="form-control" id="inputEmailAddress" placeholder="" name="email">
-											</div>
-											<div class="col-12">
-												<label for="inputChoosePassword" class="form-label">Password</label>
-												<div class="input-group" id="show_hide_password">
-													<input type="password" class="form-control border-end-0" id="inputChoosePassword" value="" placeholder="Enter Password" name="password"> 
-                                                    <a href="javascript:;" class="input-group-text bg-transparent"><i class="bi bi-eye-slash-fill"></i></a>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="d-grid">
-													<button type="submit" class="btn btn-grd-primary">Login</button>
-												</div>
-											</div>
-											<div class="col-12">
-												{{-- <div class="text-start">
+                            <div class="form-body my-5">
+                                <form class="row g-3" method="POST" action="{{ route('login') }}">
+                                    @csrf
+
+                                    <div class="col-12">
+                                        <label for="inputEmailAddress" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="inputEmailAddress" placeholder=""
+                                            name="email">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputChoosePassword" class="form-label">Password</label>
+                                        <div class="input-group" id="show_hide_password">
+                                            <input type="password" class="form-control border-end-0"
+                                                id="inputChoosePassword" value="" placeholder="Enter Password"
+                                                name="password">
+                                            <a href="javascript:;" class="input-group-text bg-transparent"><i
+                                                    class="bi bi-eye-slash-fill"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-grd-primary">Login</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        {{-- <div class="text-start">
 													<p class="mb-0">Don't have an account yet? <a href="{{route ('register')}}">Sign up here</a>
 													</p>
 												</div> --}}
-											</div>
-										</form>
-									</div>
-              </div>
-            </div>
-           </div>
-        </div><!--end row-->
-     </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end row-->
+        </div>
     </div>
     <!--authentication-->
 
 
     <!--plugins-->
-    <script src="{{asset('backend/assets/js/jquery.min.js')}}"></script>
+    <script src="{{ asset('backend/assets/js/jquery.min.js') }}"></script>
 
     <script>
-      $(document).ready(function () {
-        $("#show_hide_password a").on('click', function (event) {
-          event.preventDefault();
-          if ($('#show_hide_password input').attr("type") == "text") {
-            $('#show_hide_password input').attr('type', 'password');
-            $('#show_hide_password i').addClass("bi-eye-slash-fill");
-            $('#show_hide_password i').removeClass("bi-eye-fill");
-          } else if ($('#show_hide_password input').attr("type") == "password") {
-            $('#show_hide_password input').attr('type', 'text');
-            $('#show_hide_password i').removeClass("bi-eye-slash-fill");
-            $('#show_hide_password i').addClass("bi-eye-fill");
-          }
+        $(document).ready(function() {
+            $("#show_hide_password a").on('click', function(event) {
+                event.preventDefault();
+                if ($('#show_hide_password input').attr("type") == "text") {
+                    $('#show_hide_password input').attr('type', 'password');
+                    $('#show_hide_password i').addClass("bi-eye-slash-fill");
+                    $('#show_hide_password i').removeClass("bi-eye-fill");
+                } else if ($('#show_hide_password input').attr("type") == "password") {
+                    $('#show_hide_password input').attr('type', 'text');
+                    $('#show_hide_password i').removeClass("bi-eye-slash-fill");
+                    $('#show_hide_password i').addClass("bi-eye-fill");
+                }
+            });
         });
-      });
     </script>
-  
-  </body>
-</html>
 
+</body>
+
+</html>

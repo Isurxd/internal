@@ -57,11 +57,11 @@ class HomeController extends Controller
 
         $total_barang_masuk = [];
         for ($i = 1; $i <= 12; $i++) {
-            $total_barang_masuk[$i] = Masuk::whereMonth('created_at', $i)->sum('jumlah');
+            $total_barang_masuk[$i] = Masuk::whereMonth('tanggal_masuk', $i)->sum('jumlah');
         }
         $total_barang_keluar = [];
         for ($i = 1; $i <= 12; $i++) {
-            $total_barang_keluar[$i] = Keluar::whereMonth('created_at', $i)->sum('jumlah');
+            $total_barang_keluar[$i] = Keluar::whereMonth('tanggal_keluar', $i)->sum('jumlah');
         }
         return view('home', [
             'barang' => $barang,

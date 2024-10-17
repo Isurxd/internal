@@ -9,7 +9,7 @@
     <h6 class="mb-0 text-uppercase">ini adalah isi index Barang Masuk</h6>
     <hr>
     <div class="card">
-        <div class="col-lg-4 pb-4 ms-auto mt-3">
+        <div class="col-lg-3 pb-4 ms-auto mt-3">
             <a href="{{ route('masuk.create') }}" class="btn btn-success px-5 raised d-flex gap-5">
                 <i class="bi bi-plus-circle"></i>
                 Tambah Barang masuk
